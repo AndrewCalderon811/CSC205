@@ -13,7 +13,7 @@ public class Activity7 {
 		stack.push(1);
 		System.out.println(stack.toString());
 		stack.push(4);
-		System.out.println(stack.toString());
+	
 		stack.push(3);
 		System.out.println(stack.toString());
 	}
