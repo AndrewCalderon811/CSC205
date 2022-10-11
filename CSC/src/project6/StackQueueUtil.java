@@ -30,10 +30,7 @@ public class StackQueueUtil {
 				break;
 			}
 		}
-		
-		
-		
-		
+
 		return ret;
 	}
 
@@ -95,8 +92,6 @@ public class StackQueueUtil {
 				break;
 			}
 		}
-		
-		
 		
 		return ret;
 	}
