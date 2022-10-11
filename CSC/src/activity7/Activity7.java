@@ -15,7 +15,7 @@ public class Activity7 {
 		stack.push(4);
 	
 		stack.push(3);
-		System.out.println(stack.toString());
+		
 	}
 	
 	
