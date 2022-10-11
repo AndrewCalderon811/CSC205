@@ -1,4 +1,4 @@
-package projects.project6stackqueue.jsjf.exceptions;
+package jsjf.exceptions;
 
 /**
  * Represents the situation in which a collection is empty.

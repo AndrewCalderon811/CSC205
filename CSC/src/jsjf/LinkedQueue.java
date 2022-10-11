@@ -68,9 +68,13 @@ public class LinkedQueue<T> implements QueueADT<T>
 	 */
 	public T first() throws EmptyCollectionException
 	{
-		// To be completed as a Programming Project
-		
-		return null;  // temp
+		if(isEmpty())
+		{
+			throw new EmptyCollectionException("queue");
+		}
+		else {
+			return head.getElement();
+		}
 	}
 
 	/**
@@ -79,9 +83,12 @@ public class LinkedQueue<T> implements QueueADT<T>
 	 */
 	public boolean isEmpty()
 	{
-		// To be completed as a Programming Project
-		
-		return true;  // temp
+		if(head == null) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	/**
@@ -90,9 +97,7 @@ public class LinkedQueue<T> implements QueueADT<T>
 	 */
 	public int size()
 	{
-		// To be completed as a Programming Project
-		
-		return 0;  // temp
+		return count;
 	}
 
 	/**
@@ -101,8 +106,15 @@ public class LinkedQueue<T> implements QueueADT<T>
 	 */
 	public String toString()
 	{
-		// To be completed as a Programming Project
+		String ret = "First < ";
 		
-		return "";  // temp
+		LinearNode<T> current = head;
+		while (current != null) {
+			ret += current.getElement() + " < ";
+			current = current.getNext();
+		}
+		ret += " Last";
+		
+		return ret;
 	}
 }

@@ -61,9 +61,12 @@ public class LinkedStack<T> implements StackADT<T>
 	 */
 	public T peek() throws EmptyCollectionException
 	{
-		// To be completed as a Programming Project
-		
-		return null;  // temp
+		if(isEmpty()) {
+			throw new EmptyCollectionException("stack");
+		}
+		else {
+			return top.getElement();
+		}
 	}
 
 	/**
@@ -72,9 +75,12 @@ public class LinkedStack<T> implements StackADT<T>
 	 */
 	public boolean isEmpty()
 	{
-		// To be completed as a Programming Project
-		
-		return true;  // temp
+		if(top == null) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	/**
@@ -83,9 +89,7 @@ public class LinkedStack<T> implements StackADT<T>
 	 */
 	public int size()
 	{
-		// To be completed as a Programming Project
-		
-		return 0;  // temp
+		return count; 
 	}
 
 	/**
@@ -94,8 +98,15 @@ public class LinkedStack<T> implements StackADT<T>
 	 */
 	public String toString()
 	{
-		// To be completed as a Programming Project
+	String ret = "First < ";
 		
-		return "";  // temp
+		LinearNode<T> current = top;
+		while (current != null) {
+			ret += current.getElement() + " < ";
+			current = current.getNext();
+		}
+		ret += " Last";
+		
+		return ret;
 	}
 }
