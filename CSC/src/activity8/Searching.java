@@ -67,6 +67,11 @@ public class Searching {
 		return ret;
 	}
 	public static <T extends Comparable<T>>
+	Integer interpolationSearch(Integer[] data, Integer target) {
+		resetCounter();
+		return(interpolationSearch(data, 0, data.length-1, target));
+	}
+	public static <T extends Comparable<T>>
 	Integer interpolationSearch(Integer[] data, int min, int max, Integer target) {
 		Integer ret = null;
 		
@@ -74,19 +79,29 @@ public class Searching {
 			return null;
 		}
 
-		int mid = min + ((max - min) * (target - data[min])) / (data[max] - data[min]);
-		counter ++;
-		int comparisonResult = data[mid].compareTo(target);
-		if (comparisonResult == 0) {
-			ret = data[mid];
+		try 
+		{
+			int mid = min + ((max - min) * (target - data[min])) / (data[max] - data[min]);
+			counter ++;
+			int comparisonResult = data[mid].compareTo(target);
+			if (comparisonResult == 0) {
+				ret = data[mid];
+			}
+			else if (comparisonResult > 0) {
+				ret = interpolationSearch(data, min, mid-1, target);
+			}
+			else {
+				ret = interpolationSearch(data, mid+1, max, target);
+			}
+			
 		}
-		else if (comparisonResult > 0) {
-			ret = interpolationSearch(data, min, mid-1, target);
+		catch (Exception ArryIndexOutOfBoundsException) {
+			
 		}
-		else {
-			ret = interpolationSearch(data, mid+1, max, target);
+		finally {
+			return ret;
 		}
-		return ret;
+		
 	}
 	
 }
