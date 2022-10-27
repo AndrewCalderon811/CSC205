@@ -227,23 +227,39 @@ public class Sorting {
 	
 	public static <T extends Comparable<T>> 
 	void sort(T[] data) {
-		// To be completed as part of Programming Project
+		mergeSort(data);
 	}
 	
 	public static <T extends Comparable<T>> 
 	void cutoffQsort(T[] data) {
-		// To be completed as part of Programming Project
+		cutoffQsort(data, 0, data.length-1);
 	}
 
 	private static <T extends Comparable<T>> 
 	void cutoffQsort(T[] data, int min, int max) {
-		// To be completed as part of Programming Project
+		
 	}
 	
 	public static <T extends Comparable<T>> 
 	List<Integer> closestPair(Integer[] data) {
-		// To be completed as part of Programming Project
-		return null;
+		mergeSort(data);
+		
+		List<Integer> ret = new ArrayList<Integer>();
+		int holder = 0;
+		int indexOfHolder;
+		
+		for(Integer ii : data) {
+			if(holder < data[ii+1]-data[ii]) {
+				holder = data[ii+1]-data[ii];
+				indexOfHolder = ii;
+			}
+		}
+		
+		ret.add(indexOfHolder);
+		ret.add(indexOfHolder+1);
+		
+		
+		return ret;
 	}
 	
 	public static <T extends Comparable<T>> 
