@@ -244,12 +244,12 @@ public class Sorting {
 	List<Integer> closestPair(Integer[] data) {
 		mergeSort(data);
 		
-		List<Integer> ret = new ArrayList<Integer>();
-		int holder = 0;
-		int indexOfHolder;
+		List<Integer> ret = new ArrayList<>();
+		int holder = data[1] - data[0];
+		int indexOfHolder = 0;
 		
 		for(Integer ii : data) {
-			if(holder < data[ii+1]-data[ii]) {
+			if(holder > data[ii+1]-data[ii]) {
 				holder = data[ii+1]-data[ii];
 				indexOfHolder = ii;
 			}

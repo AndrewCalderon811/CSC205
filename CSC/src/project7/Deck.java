@@ -24,7 +24,12 @@ public class Deck {
 	}
 	
 	public void shuffle() {
-		// To be completed as part of Programming Project
+		Integer[] r = new Integer[cards.size()];
+		
+		for(int i = 0; i<=cards.size(); i++) {
+			r[i] = (int) Math.random()*1000;
+		}
+		Sorting.mergeSort(r);
 	}
 	
 	public String toString(){
