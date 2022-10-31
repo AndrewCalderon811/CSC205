@@ -30,6 +30,7 @@ public class Deck {
 			r[i] = (int) Math.random()*1000;
 		}
 		Sorting.mergeSort(r);
+		r.toString();
 	}
 	
 	public String toString(){

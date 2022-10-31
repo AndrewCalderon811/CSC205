@@ -245,19 +245,20 @@ public class Sorting {
 		mergeSort(data);
 		
 		List<Integer> ret = new ArrayList<>();
-		int holder = data[1] - data[0];
-		int indexOfHolder = 0;
+		int holder = data[1]-data[0];
+		int previousData = data[1];
 		
 		for(Integer ii : data) {
-			if(holder > data[ii+1]-data[ii]) {
-				holder = data[ii+1]-data[ii];
-				indexOfHolder = ii;
+			if(holder > ii-previousData) {
+				holder = ii-previousData;
+				previousData = ii;
 			}
+			
+			
 		}
 		
-		ret.add(indexOfHolder);
-		ret.add(indexOfHolder+1);
-		
+		ret.add(previousData);
+		ret.add(previousData + holder);
 		
 		return ret;
 	}
