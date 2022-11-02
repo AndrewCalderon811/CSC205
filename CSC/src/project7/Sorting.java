@@ -227,7 +227,7 @@ public class Sorting {
 	
 	public static <T extends Comparable<T>> 
 	void sort(T[] data) {
-		mergeSort(data);
+		cutoffQsort(data);
 	}
 	
 	public static <T extends Comparable<T>> 
@@ -237,35 +237,55 @@ public class Sorting {
 
 	private static <T extends Comparable<T>> 
 	void cutoffQsort(T[] data, int min, int max) {
-		
+		if (min < max && max-min > 3) {
+			// Create a partition
+			int indexOfPartition = partition(data, min, max);
+			
+			// sort the left partition (lower values)
+			cutoffQsort(data, min, indexOfPartition - 1);
+			
+			// sort the right partition (higher values)
+			cutoffQsort(data, indexOfPartition + 1, max);
+		}
+		else {
+			mergeSort(data, min, max);
+		}
 	}
+
 	
 	public static <T extends Comparable<T>> 
 	List<Integer> closestPair(Integer[] data) {
 		mergeSort(data);
 		
-		List<Integer> ret = new ArrayList<>();
-		int holder = data[1]-data[0];
-		int previousData = data[1];
+		List<Integer> ret = new ArrayList<Integer>();
 		
-		for(Integer ii : data) {
-			if(holder > ii-previousData) {
-				holder = ii-previousData;
-				previousData = ii;
-			}
+		int min = 0;
+		
+		for(int index = 0; index < data.length-1; index++) {
 			
+			for(int scan = index+1; scan < data.length; scan++) {
+				if(data[scan]-data[index]<data[min+1]-data[min]) {
+					min=index;
+				} 
+			}
 			
 		}
 		
-		ret.add(previousData);
-		ret.add(previousData + holder);
+		ret.add(data[min]);
+		ret.add(data[min+1]);
 		
 		return ret;
 	}
 	
 	public static <T extends Comparable<T>> 
 	List<T> firstN(T[] data, int n) {
-		// To be completed as part of Programming Project
-		return null;
+		List<T> ret = new ArrayList<>();
+		cutoffQsort(data);
+		
+		for(int i = 0; i < n; i++) {
+			ret.add(data[i]);
+		}
+		
+		return ret;
 	}
 }
