@@ -248,7 +248,7 @@ public class Sorting {
 			cutoffQsort(data, indexOfPartition + 1, max);
 		}
 		else {
-			mergeSort(data, min, max);
+			selectionSort(data, min, max);
 		}
 	}
 
