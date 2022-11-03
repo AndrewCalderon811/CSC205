@@ -237,7 +237,7 @@ public class Sorting {
 
 	private static <T extends Comparable<T>> 
 	void cutoffQsort(T[] data, int min, int max) {
-		if (min < max && max-min > 3) {
+		if (min < max && max-min > 7) {
 			// Create a partition
 			int indexOfPartition = partition(data, min, max);
 			
