@@ -303,12 +303,12 @@ implements BinarySearchTreeADT<T>
 		else 
 		{
 			if (root.right == null) 
-			{  // Root is the min element
+			{  // Root is the max element
 				result = root.element;
 				root = root.left;
 			}
 			else 
-			{  // Min element is all the way to the left
+			{  // Max element is all the way to the right
 				BinaryTreeNode<T> parent = root;
 				BinaryTreeNode<T> current = root.right;
 				while (current.right != null) 
@@ -345,6 +345,7 @@ implements BinarySearchTreeADT<T>
 			
 			while(current.left != null) {
 				ret = current.left.element;
+				current = current.left;
 			}
 		}
 		
@@ -369,11 +370,11 @@ implements BinarySearchTreeADT<T>
 			Boolean searching = true;
 			BinaryTreeNode<T> right = root.right;
 			BinaryTreeNode<T> left = root.left;
-//			while(searching) {
-//				if(targetElement < root.getElement()) {
-//					
-//				}
-//			}
+			while(searching) {
+				if(((Comparable<T>)targetElement).compareTo(node.element)) {
+					
+				}
+			}
 		}
 		return null;  // temp
 	}
@@ -389,7 +390,6 @@ implements BinarySearchTreeADT<T>
 	 */
 	public T findMax() throws EmptyCollectionException 
 	{
-
 		T ret = null;
 		if(isEmpty()) {
 			throw new EmptyCollectionException("LinkedBinarySearchTree");
@@ -399,10 +399,11 @@ implements BinarySearchTreeADT<T>
 			
 			while(current.right != null) {
 				ret = current.right.element;
+				current = current.right;
 			}
 		}
 		
-		return ret;  // temp
+		return ret;
 	
 	}
 
@@ -413,12 +414,8 @@ implements BinarySearchTreeADT<T>
 	 */
 	public LinkedBinarySearchTree<T> getLeft()
 	{
-		// To be completed as a Programming Project
-		LinkedBinarySearchTree<T> ret = new LinkedBinarySearchTree<T>();
-		T leftElement = root.left.element;
-		ret.addElement(leftElement);
-		
-		return ret;  // temp
+		LinkedBinarySearchTree<T> ret = new LinkedBinarySearchTree<T>(root.left.element);
+		return ret; 
 	}
 	
 
@@ -429,9 +426,8 @@ implements BinarySearchTreeADT<T>
 	 */
 	public LinkedBinarySearchTree<T> getRight()
 	{
-		// To be completed as a Programming Project
-		
-		return null;  // temp
+		LinkedBinarySearchTree<T> ret = new LinkedBinarySearchTree<T>(root.right.element);
+		return ret;  
 	}
 
 	public void printTree() {
