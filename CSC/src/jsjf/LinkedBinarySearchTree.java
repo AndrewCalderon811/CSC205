@@ -296,9 +296,34 @@ implements BinarySearchTreeADT<T>
 	 */
 	public T removeMax() throws EmptyCollectionException 
 	{
-		// To be completed as a Programming Project
-		
-		return null;  // temp
+		T result = null;
+
+		if (isEmpty())
+			throw new EmptyCollectionException("LinkedBinarySearchTree");
+		else 
+		{
+			if (root.right == null) 
+			{  // Root is the min element
+				result = root.element;
+				root = root.left;
+			}
+			else 
+			{  // Min element is all the way to the left
+				BinaryTreeNode<T> parent = root;
+				BinaryTreeNode<T> current = root.right;
+				while (current.right != null) 
+				{
+					parent = current;
+					current = current.right;
+				}
+				result =  current.element;
+				parent.right = current.left;
+			}
+
+			modCount++;
+		}
+
+		return result;
 	}
 
 	/**
@@ -311,9 +336,19 @@ implements BinarySearchTreeADT<T>
 	 */
 	public T findMin() throws EmptyCollectionException 
 	{
-		// To be completed as a Programming Project
+		T ret = null;
+		if(isEmpty()) {
+			throw new EmptyCollectionException("LinkedBinarySearchTree");
+		}
+		else {
+			BinaryTreeNode<T> current = root.right;
+			
+			while(current.left != null) {
+				ret = current.left.element;
+			}
+		}
 		
-		return null;  // temp
+		return ret;  // temp
 	}
 	
 	/**
@@ -327,7 +362,19 @@ implements BinarySearchTreeADT<T>
 	public T find(T targetElement) throws EmptyCollectionException 
 	{
 		// To be completed as a Programming Project
-		
+		if(isEmpty()) {
+			throw new EmptyCollectionException("LinkedBinarySearchTree");
+		}
+		else {
+			Boolean searching = true;
+			BinaryTreeNode<T> right = root.right;
+			BinaryTreeNode<T> left = root.left;
+//			while(searching) {
+//				if(targetElement < root.getElement()) {
+//					
+//				}
+//			}
+		}
 		return null;  // temp
 	}
 
@@ -342,9 +389,21 @@ implements BinarySearchTreeADT<T>
 	 */
 	public T findMax() throws EmptyCollectionException 
 	{
-		// To be completed as a Programming Project
+
+		T ret = null;
+		if(isEmpty()) {
+			throw new EmptyCollectionException("LinkedBinarySearchTree");
+		}
+		else {
+			BinaryTreeNode<T> current = root.right;
+			
+			while(current.right != null) {
+				ret = current.right.element;
+			}
+		}
 		
-		return null;  // temp
+		return ret;  // temp
+	
 	}
 
 	/**
@@ -355,9 +414,13 @@ implements BinarySearchTreeADT<T>
 	public LinkedBinarySearchTree<T> getLeft()
 	{
 		// To be completed as a Programming Project
+		LinkedBinarySearchTree<T> ret = new LinkedBinarySearchTree<T>();
+		T leftElement = root.left.element;
+		ret.addElement(leftElement);
 		
-		return null;  // temp
+		return ret;  // temp
 	}
+	
 
 	/**
 	 * Returns the right subtree of the root of this tree.
@@ -374,6 +437,14 @@ implements BinarySearchTreeADT<T>
 	public void printTree() {
 		// Complete for project 8
 		System.out.println("Complete for project 8");
+		
+		String ret = "";
+		
+		
+		
+		
+		
+		System.out.println();
 	}
 }
 

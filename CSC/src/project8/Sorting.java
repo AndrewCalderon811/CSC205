@@ -4,6 +4,8 @@
 
 package project8;
 
+import jsjf.LinkedBinarySearchTree;
+
 public class Sorting {
 
 	// Helper methods
@@ -229,7 +231,11 @@ public class Sorting {
 	// Project 8 - Complete the following method
 	public static <T extends Comparable<T>> 
 	void bstSort(T[] data) {
-		// Project 8
+		LinkedBinarySearchTree<T> tree = new LinkedBinarySearchTree<>();
+		
+		for(T ii : data) {
+			tree.addElement(ii);
+		}
 	}
 
 }
