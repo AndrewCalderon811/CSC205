@@ -363,21 +363,52 @@ implements BinarySearchTreeADT<T>
 	public T find(T targetElement) throws EmptyCollectionException 
 	{
 		// To be completed as a Programming Project
-		if(isEmpty()) {
+		T result = null;
+		
+		if (isEmpty()) {
+			throw new EmptyCollectionException("LinkedBinarySearchTree");
+		}
+		
+		if(((Comparable<T>)targetElement).equals(root.element)) {
+			result = root.element;
+		}
+		else {
+			if(((Comparable<T>)targetElement).compareTo(root.element) < 0) {
+				result = find(targetElement, root.left);
+			}
+			else {
+				result = find(targetElement, root.right);
+			}
+		}
+		return result;  // temp
+	}
+	
+	public T find(T targetElement, BinaryTreeNode<T> node) throws EmptyCollectionException {
+		T result = null;
+		
+		if(node.element == null) {
 			throw new EmptyCollectionException("LinkedBinarySearchTree");
 		}
 		else {
-			Boolean searching = true;
-			BinaryTreeNode<T> right = root.right;
-			BinaryTreeNode<T> left = root.left;
-			while(searching) {
-				if(((Comparable<T>)targetElement).compareTo(node.element)) {
-					
+			if(((Comparable<T>)targetElement).equals(node.element)) {
+				result = node.element;
+			}
+			else {
+				if(((Comparable<T>)targetElement).compareTo(node.element) < 0) {
+					result = find(targetElement, node.left);
+				}
+				else {
+					result = find(targetElement, node.right);
 				}
 			}
+			
 		}
-		return null;  // temp
+		
+		
+		return result;
 	}
+	
+	
 
 	/**
 	 * Returns the element with the highest value in the binary
