@@ -341,7 +341,7 @@ implements BinarySearchTreeADT<T>
 			throw new EmptyCollectionException("LinkedBinarySearchTree");
 		}
 		else {
-			BinaryTreeNode<T> current = root.right;
+			BinaryTreeNode<T> current = root;
 			
 			while(current.left != null) {
 				ret = current.left.element;
@@ -349,7 +349,7 @@ implements BinarySearchTreeADT<T>
 			}
 		}
 		
-		return ret;  // temp
+		return ret; 
 	}
 	
 	/**
@@ -362,7 +362,6 @@ implements BinarySearchTreeADT<T>
 	 */
 	public T find(T targetElement) throws EmptyCollectionException 
 	{
-		// To be completed as a Programming Project
 		T result = null;
 		
 		if (isEmpty()) {
@@ -380,31 +379,27 @@ implements BinarySearchTreeADT<T>
 				result = find(targetElement, root.right);
 			}
 		}
-		return result;  // temp
+		return result; 
 	}
 	
 	public T find(T targetElement, BinaryTreeNode<T> node) throws EmptyCollectionException {
 		T result = null;
 		
-		if(node.element == null) {
-			throw new EmptyCollectionException("LinkedBinarySearchTree");
-		}
-		else {
 			if(((Comparable<T>)targetElement).equals(node.element)) {
 				result = node.element;
 			}
 			else {
 				if(((Comparable<T>)targetElement).compareTo(node.element) < 0) {
-					result = find(targetElement, node.left);
+					if(node.left != null) {
+						result = find(targetElement, node.left);
+					}
 				}
 				else {
-					result = find(targetElement, node.right);
+					if(node.right != null) {
+						result = find(targetElement, node.right);
+					}
 				}
-			}
-			
-		}
-		
-		
+			}		
 		return result;
 	}
 	
@@ -466,10 +461,6 @@ implements BinarySearchTreeADT<T>
 		System.out.println("Complete for project 8");
 		
 		String ret = "";
-		
-		
-		
-		
 		
 		System.out.println();
 	}
