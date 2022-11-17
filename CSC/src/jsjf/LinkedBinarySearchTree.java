@@ -458,11 +458,35 @@ implements BinarySearchTreeADT<T>
 
 	public void printTree() {
 		// Complete for project 8
-		System.out.println("Complete for project 8");
+		System.out.println(printTree("", root));
+	}
+	
+	private String printTree(String str, BinaryTreeNode<T> node) {
+		String ret = str;
+		if(node.left != null) {
+			ret = ret + "( ";
+			
+			ret = ret + printTree(ret, node.left);
+			System.out.println("AddingL: " + node.element);
+			ret = ret + node.element;
+			if(node.right != null) {
+				ret = ret + "( ";
+				ret = ret + printTree(ret, node.right);
+				System.out.println("AddingR: " + node.element);
+				ret = ret + node.element;
+			}
+			else {
+				ret += " )";
+			}
+		}
+		else {
+			ret = ret + "( ";
+			ret = ret + node.element;
+			System.out.println("made it");
+			ret = ret + " )";
+		}
 		
-		String ret = "";
-		
-		System.out.println();
+		return ret;
 	}
 }
 

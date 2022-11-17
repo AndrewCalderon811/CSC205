@@ -233,9 +233,16 @@ public class Sorting {
 	void bstSort(T[] data) {
 		LinkedBinarySearchTree<T> tree = new LinkedBinarySearchTree<>();
 		
+		
 		for(T ii : data) {
 			tree.addElement(ii);
 		}
+		int i = 0;
+		for(T temp : tree) {
+			data[i] = temp;
+			i++;
+		}
+		
 	}
 
 }
