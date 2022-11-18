@@ -228,7 +228,6 @@ public class Sorting {
 		return right;
 	}
 
-	// Project 8 - Complete the following method
 	public static <T extends Comparable<T>> 
 	void bstSort(T[] data) {
 		LinkedBinarySearchTree<T> tree = new LinkedBinarySearchTree<>();

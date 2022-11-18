@@ -382,7 +382,7 @@ implements BinarySearchTreeADT<T>
 		return result; 
 	}
 	
-	public T find(T targetElement, BinaryTreeNode<T> node) throws EmptyCollectionException {
+	private T find(T targetElement, BinaryTreeNode<T> node) throws EmptyCollectionException {
 		T result = null;
 		
 			if(((Comparable<T>)targetElement).equals(node.element)) {
@@ -457,36 +457,30 @@ implements BinarySearchTreeADT<T>
 	}
 
 	public void printTree() {
-		// Complete for project 8
 		System.out.println(printTree("", root));
 	}
 	
 	private String printTree(String str, BinaryTreeNode<T> node) {
-		String ret = str;
-		if(node.left != null) {
-			ret = ret + "( ";
-			
-			ret = ret + printTree(ret, node.left);
-			System.out.println("AddingL: " + node.element);
-			ret = ret + node.element;
-			if(node.right != null) {
-				ret = ret + "( ";
-				ret = ret + printTree(ret, node.right);
-				System.out.println("AddingR: " + node.element);
-				ret = ret + node.element;
-			}
-			else {
-				ret += " )";
-			}
+		
+		if(node.left == null && node.right == null) {
+			str += " ( " + node.element + " ) ";
+			System.out.println("Adding: " + node.element);
 		}
 		else {
-			ret = ret + "( ";
-			ret = ret + node.element;
-			System.out.println("made it");
-			ret = ret + " )";
-		}
+			
+			if(node.left != null && node.right != null) {
+				str += (" ( " + printTree(str, node.left) + " " + node.element + " " + printTree(str, node.right) + " ) ");
+			}
+			else if(node.left != null) {
+					str += (" ( " + printTree(str, node.left) + " " + node.element + " ) ");
+			}
+			else if(node.right != null) {
+						str += (" ( "  + " " + node.element + printTree(str, node.right) + " ) ");
+					}
+			}
+			
 		
-		return ret;
+		return str;
 	}
 }
 
