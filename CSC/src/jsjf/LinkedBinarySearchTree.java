@@ -464,7 +464,7 @@ implements BinarySearchTreeADT<T>
 		
 		if(node.left == null && node.right == null) {
 			str += " ( " + node.element + " ) ";
-			System.out.println("Adding: " + node.element);
+			
 		}
 		else {
 			
