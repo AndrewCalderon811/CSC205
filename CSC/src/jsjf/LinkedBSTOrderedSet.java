@@ -8,14 +8,15 @@ public class LinkedBSTOrderedSet<T> implements OrderedSetADT<T>{
 	LinkedBinarySearchTree<T> t = new LinkedBinarySearchTree<T>();
 
 	public LinkedBSTOrderedSet() {
-		super();
+		
+		
 	}
 
 	@Override
 	public void addElement(T element) {
-//		if(!contains(element)) {
-//			t.addElement(element);
-//		}
+		if(!contains(element)) {
+			t.addElement(element);
+		}
 	}
 	
 	

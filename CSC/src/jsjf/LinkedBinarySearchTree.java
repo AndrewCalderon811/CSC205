@@ -385,21 +385,22 @@ implements BinarySearchTreeADT<T>
 	private T find(T targetElement, BinaryTreeNode<T> node) throws EmptyCollectionException {
 		T result = null;
 		
-			if(((Comparable<T>)targetElement).equals(node.element)) {
-				result = node.element;
-			}
-			else {
-				if(((Comparable<T>)targetElement).compareTo(node.element) < 0) {
-					if(node.left != null) {
-						result = find(targetElement, node.left);
-					}
+			if(node != null)
+				if(((Comparable<T>)targetElement).equals(node.element)) {
+					result = node.element;
 				}
 				else {
-					if(node.right != null) {
-						result = find(targetElement, node.right);
+					if(((Comparable<T>)targetElement).compareTo(node.element) < 0) {
+						if(node.left != null) {
+							result = find(targetElement, node.left);
+						}
 					}
-				}
-			}		
+					else {
+						if(node.right != null) {
+							result = find(targetElement, node.right);
+						}
+					}
+				}		
 		return result;
 	}
 	
