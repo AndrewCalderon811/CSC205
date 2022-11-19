@@ -13,7 +13,9 @@ public class LinkedBSTOrderedSet<T> implements OrderedSetADT<T>{
 
 	@Override
 	public void addElement(T element) {
-		
+//		if(!contains(element)) {
+//			t.addElement(element);
+//		}
 	}
 	
 	
@@ -41,7 +43,7 @@ public class LinkedBSTOrderedSet<T> implements OrderedSetADT<T>{
 	public boolean contains(T targetElement) {
 		boolean ret = false;
 		
-		if(find(targetElement) != null) {
+		if(!t.isEmpty() && find(targetElement) != null) {
 			ret = true;
 		}
 		
