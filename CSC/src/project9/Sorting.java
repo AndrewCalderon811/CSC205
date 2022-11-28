@@ -6,6 +6,7 @@ package project9;
 
 import java.util.ArrayList;
 import jsjf.ArrayHeap;
+import jsjf.LinkedBinarySearchTree;
 
 public class Sorting {
 
@@ -234,10 +235,20 @@ public class Sorting {
 		return right;
 	}
 
-	// Project 8 - Complete the following method
 	public static <T extends Comparable<T>> 
 	void bstSort(T[] data) {
-		// Project 8
+	LinkedBinarySearchTree<T> tree = new LinkedBinarySearchTree<>();
+		
+		
+		for(T ii : data) {
+			tree.addElement(ii);
+		}
+		int i = 0;
+		for(T temp : tree) {
+			data[i] = temp;
+			i++;
+		}
+		
 	}
 	
 	public static <T> void heapSort(T[] data) 
