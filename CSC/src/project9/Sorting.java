@@ -274,9 +274,14 @@ public class Sorting {
 		//               return only n elements
 
 		ArrayList<T> ret = new ArrayList<T>();
+		ArrayHeap<T> heap = new ArrayHeap<T>();
 		
 		for (T e : data) {
-			ret.add(e);
+			heap.addElement(e);
+		}
+		for(int i = 0; i < n; i++) {
+			ret.add(heap.getRootElement());
+			heap.removeMin();
 		}
 		return ret;
 	}
