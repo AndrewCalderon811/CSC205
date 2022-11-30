@@ -2,34 +2,34 @@ package jsjf;
 
 public class HeapStack<T> implements StackADT<T> {
 
+	
+	ArrayHeap<ArrivalObject<T>> hstack = new ArrayHeap<ArrivalObject<T>>();
 	@Override
 	public void push(T element) {
-		// TODO Auto-generated method stub
+		ArrivalObject<T> obj = new ArrivalObject<T>(element);
+		hstack.addElement(obj);
 		
 	}
 
 	@Override
 	public T pop() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrivalObject<T> obj = (ArrivalObject<T>)hstack.removeMin();
+		return obj.getElement();
 	}
 
 	@Override
 	public T peek() {
-		// TODO Auto-generated method stub
-		return null;
+		return hstack.findMin().getElement();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return hstack.isEmpty();
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return hstack.size();
 	}
 	
 }

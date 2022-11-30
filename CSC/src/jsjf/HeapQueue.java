@@ -2,34 +2,32 @@ package jsjf;
 
 public class HeapQueue<T> implements QueueADT<T> {
 
+	ArrayHeap<ArrivalObject<T>> hqueue = new ArrayHeap<ArrivalObject<T>>();
 	@Override
 	public void enqueue(T element) {
-		// TODO Auto-generated method stub
-		
+		ArrivalObject<T> obj = new ArrivalObject<T>(element);
+		hqueue.addElement(obj);
 	}
 
 	@Override
 	public T dequeue() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrivalObject<T> obj = (ArrivalObject<T>)hqueue.removeMin();
+		return obj.getElement();
 	}
 
 	@Override
 	public T first() {
-		// TODO Auto-generated method stub
-		return null;
+		return hqueue.findMin().getElement();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return hqueue.isEmpty();
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return hqueue.size();
 	}
 
 
