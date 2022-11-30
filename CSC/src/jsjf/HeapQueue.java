@@ -2,16 +2,16 @@ package jsjf;
 
 public class HeapQueue<T> implements QueueADT<T> {
 
-	ArrayHeap<ArrivalObject<T>> hqueue = new ArrayHeap<ArrivalObject<T>>();
+	ArrayHeap<ArrivalObjectQueue<T>> hqueue = new ArrayHeap<ArrivalObjectQueue<T>>();
 	@Override
 	public void enqueue(T element) {
-		ArrivalObject<T> obj = new ArrivalObject<T>(element);
+		ArrivalObjectQueue<T> obj = new ArrivalObjectQueue<T>(element);
 		hqueue.addElement(obj);
 	}
 
 	@Override
 	public T dequeue() {
-		ArrivalObject<T> obj = (ArrivalObject<T>)hqueue.removeMin();
+		ArrivalObjectQueue<T> obj = (ArrivalObjectQueue<T>)hqueue.removeMin();
 		return obj.getElement();
 	}
 

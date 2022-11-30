@@ -3,17 +3,17 @@ package jsjf;
 public class HeapStack<T> implements StackADT<T> {
 
 	
-	ArrayHeap<ArrivalObject<T>> hstack = new ArrayHeap<ArrivalObject<T>>();
+	ArrayHeap<ArrivalObjectStack<T>> hstack = new ArrayHeap<ArrivalObjectStack<T>>();
 	@Override
 	public void push(T element) {
-		ArrivalObject<T> obj = new ArrivalObject<T>(element);
-		hstack.addElement(obj);
+		ArrivalObjectStack<T> obj = new ArrivalObjectStack<T>(element);
+		hstack.addElement(obj);;
 		
 	}
 
 	@Override
 	public T pop() {
-		ArrivalObject<T> obj = (ArrivalObject<T>)hstack.removeMin();
+		ArrivalObjectStack<T> obj = (ArrivalObjectStack<T>)hstack.removeMin();
 		return obj.getElement();
 	}
 

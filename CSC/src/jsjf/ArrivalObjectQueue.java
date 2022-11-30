@@ -1,13 +1,13 @@
 package jsjf;
 
-public class ArrivalObject<T> implements Comparable<ArrivalObject<T>>{
+public class ArrivalObjectQueue<T> implements Comparable<ArrivalObjectQueue<T>>{
 	
 	private static int nextOrder = 0;
 	private int arrivalOrder;
 	private T element;
 	
 	
-	public ArrivalObject(T element) {
+	public ArrivalObjectQueue(T element) {
 		
 		this.element = element;
 		arrivalOrder = nextOrder;
@@ -26,7 +26,7 @@ public class ArrivalObject<T> implements Comparable<ArrivalObject<T>>{
 		return (element + "  " + arrivalOrder);
 	}
 	
-	public int compareTo(ArrivalObject<T> obj) {
+	public int compareTo(ArrivalObjectQueue<T> obj) {
 		int result;
 		
 		if(arrivalOrder > obj.getArrivalOrder()) {
